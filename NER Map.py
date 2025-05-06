@@ -3,11 +3,11 @@ import pandas as pd
 import plotly.express as px
 
 # Load NER-extracted counts (January 2024)
-ner_df = pd.read_csv("../ner_counts.tsv", sep="\t")
+ner_df = pd.read_csv("ner_counts.tsv", sep="\t")
 ner_df.columns = ner_df.columns.str.strip()
 
 # Load coordinates from geocoded gazetteer
-gazetteer_df = pd.read_csv("../NER_gazetteer.tsv", sep="\t")
+gazetteer_df = pd.read_csv("NER_gazetteer.tsv", sep="\t")
 gazetteer_df.columns = gazetteer_df.columns.str.strip()
 # Clean column names
 ner_df.columns = ner_df.columns.str.strip()
@@ -29,7 +29,6 @@ fig = px.scatter_geo(
     size="frequency",
 
     color="frequency",
-    zoom=5,
     height=600,
     color_continuous_scale=px.colors.sequential.YlOrRd,
     title="NER-Extracted Place Names (January 2024)"
